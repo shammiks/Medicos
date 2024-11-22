@@ -1,9 +1,12 @@
 import React from 'react';
 import { ScrollView, View, Text, Image, StyleSheet, Dimensions } from 'react-native';
+import Animated,{FadeInDown} from 'react-native-reanimated';
 
 const AboutScreen = () => {
   return (
-    <ScrollView style={styles.container}>
+    <Animated.ScrollView 
+    entering={FadeInDown.duration(4000).delay(200).springify()}
+    style={styles.container}>
       {/* Doctor's Image */}
       <Image
         source={{ uri: 'https://dpmemorial.com/photo.jpeg' }}
@@ -24,7 +27,7 @@ const AboutScreen = () => {
           "Caring for my patients is my passion, and I believe that health is a journey, not a destination."
         </Text>
       </View>
-    </ScrollView>
+    </Animated.ScrollView>
   );
 };
 

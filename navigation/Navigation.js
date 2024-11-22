@@ -17,6 +17,7 @@ import Notice from "../screens/Notice";
 import UserProfile from "../screens/UserProfile";
 import MedicineScreen from "../screens/Medicine";
 import AboutScreen from "../screens/AboutScreen"
+import ArticleDetails from "../screens/ArticleDetails";
 
 const Stack = createNativeStackNavigator();
 
@@ -147,8 +148,6 @@ export default function Navigation() {
           name="Notice"
           component={Notice}
           options={{ headerShown: false, 
-           presentation:'modal',
-          animation:'slide_from_right'
           }}
         />
          <Stack.Screen
@@ -164,6 +163,11 @@ export default function Navigation() {
         <Stack.Screen
           name="Chats"
           component={ChatScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Health"
+          component={ArticleDetails}
           options={{ headerShown: false }}
         />
 

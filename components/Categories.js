@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from '@expo/vector-icons/Ionicons';  
-import  FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 const CategoriesSection = () => {
   const navigation = useNavigation();
 
@@ -13,9 +13,12 @@ const CategoriesSection = () => {
       navigation.navigate('Products'); 
     } else if (category === 'appointments') {
       navigation.navigate('Appointments'); 
-    }
+    } else if (category === 'haircare') {
+      navigation.navigate('Products'); 
+  }else if (category === 'About us') {
+    navigation.navigate('About'); 
   };
-
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Categories</Text>
@@ -35,7 +38,7 @@ const CategoriesSection = () => {
           style={styles.categoryItem}
           onPress={() => handleCategoryPress('healthcare')}
         >
-          <Ionicons name="heart-outline" size={30} color="#007AFF" />
+          <MaterialCommunityIcons name="heart-plus-outline" size={30} color="#007AFF" />
           <Text style={styles.categoryText}>Healthcare</Text>
         </TouchableOpacity>
 
@@ -44,22 +47,24 @@ const CategoriesSection = () => {
           style={styles.categoryItem}
           onPress={() => handleCategoryPress('haircare')}
         >
-          <FontAwesome5 name="hand-holding-heart" size={30} color="#007AFF" />
+          <MaterialCommunityIcons name="heart-outline" size={30} color="#007AFF" />
           <Text style={styles.categoryText}>HairCare</Text>
         </TouchableOpacity>
 
         {/* others */}
         <TouchableOpacity
           style={styles.categoryItem}
-          onPress={() => handleCategoryPress('other')}
+          onPress={() => handleCategoryPress('About us')}
         >
-          <Ionicons name="options-outline" size={30} color="#007AFF" />
-          <Text style={styles.categoryText}>Others</Text>
+          <MaterialCommunityIcons name="account-details-outline" size={30} color="#007AFF" />
+          <Text style={styles.categoryText}>About us</Text>
         </TouchableOpacity>
       </ScrollView>
     </View>
   );
 };
+
+export default CategoriesSection;
 
 const styles = StyleSheet.create({
   container: {
@@ -93,4 +98,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CategoriesSection;
+

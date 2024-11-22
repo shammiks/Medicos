@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     slide: {
         width: '100%',
         height: 250,
-        backgroundColor: 'yellow',
+        backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
     },

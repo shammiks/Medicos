@@ -11,11 +11,14 @@ import YoutubeIframeScreen from "../components/YoutubeIFrame";
 import ReviewSection from "../components/ReviewSction";
 import FooterComp from "../components/Footer";
 import SwiperHomeScreen from "../components/SwiperHomeScreen";
+import Animated,{FadeInDown} from "react-native-reanimated";
 
 const HomeScreen = () => {
   
   return (
-    <ScrollView style={styles.container}>
+    <Animated.ScrollView 
+    entering={FadeInDown.duration(2000).delay(200).springify()}
+    style={styles.container}>
      
      <StatusBar style="dark"/>
 
@@ -53,7 +56,7 @@ const HomeScreen = () => {
 
      <FooterComp />
      
-    </ScrollView>
+    </Animated.ScrollView>
    
 
   );
@@ -63,7 +66,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingHorizontal: 15,
+    paddingHorizontal: 10,
+    
   },
   viewAllText: {
     left:157,

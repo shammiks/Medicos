@@ -31,11 +31,16 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   noticeText: {
-    fontSize: 30, 
-    fontWeight: '400', 
-    letterSpacing: 2, 
-    textAlign: 'center',
-    color: '#36454F', 
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "#00796b",
+    textAlign: "center",
+    marginBottom: 20,
+    letterSpacing: 1.5,
+    textTransform: "uppercase",
+    textShadowColor: "#b2dfdb",
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 2,
   },
 });
 

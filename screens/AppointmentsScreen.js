@@ -50,7 +50,7 @@ const AppointmentsScreen = ({ navigation }) => {
   return (
    
     <LinearGradient
-      colors={['#D7E6F6', '#fff']}
+      colors={["#e0f7fa", "#fce4ec"]}
       style={styles.gradient}
     >
       <Animated.View entering={FadeInDown.duration(3000).delay(100).springify()}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScrollView, View, Text, Image, StyleSheet, Dimensions } from 'react-native';
+import Animated,{FadeInDown} from 'react-native-reanimated';
 
 const medicines = [
   {
@@ -56,7 +57,9 @@ const medicines = [
 
 const MedicineScreen = () => {
   return (
-    <ScrollView style={styles.container}>
+    <Animated.ScrollView 
+    entering={FadeInDown.duration(4000).delay(200).springify()}
+    style={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Our Medicines</Text>
         <Text style={styles.subHeaderText}>
@@ -72,7 +75,7 @@ const MedicineScreen = () => {
           </View>
         </View>
       ))}
-    </ScrollView>
+    </Animated.ScrollView>
   );
 };
 

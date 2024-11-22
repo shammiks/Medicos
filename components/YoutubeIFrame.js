@@ -13,7 +13,6 @@ const YouTubeChannelScreen = () => {
   const API_KEY = 'AIzaSyD7DRkKTIBkjOGkEnnJkAyz1DfXqqzUq58';
   const CHANNEL_ID = 'UCJPg1xTH9GT6ZUAxoc2HUWQ';
 
-  // Fetch videos from the channel
   const fetchVideos = async (pageToken = '') => {
     setIsLoading(true);
     try {
@@ -21,19 +20,14 @@ const YouTubeChannelScreen = () => {
         `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet&type=video&order=date&maxResults=5&pageToken=${pageToken}`
       );
       const data = await response.json();
-
-      // Log response to verify data
-      //console.log('API Response:', data);
-
-      // Map the videos to required format
       const videoList = data.items.map((item) => ({
         id: item.id.videoId,
         title: item.snippet.title,
         thumbnail: item.snippet.thumbnails.medium.url,
       }));
 
-      setVideos((prevVideos) => [...prevVideos, ...videoList]); // Append new videos to the existing list
-      setNextPageToken(data.nextPageToken); // Set the next page token
+      setVideos((prevVideos) => [...prevVideos, ...videoList]); 
+      setNextPageToken(data.nextPageToken);
     } catch (error) {
       console.error('Error fetching videos:', error);
     } finally {
@@ -41,12 +35,10 @@ const YouTubeChannelScreen = () => {
     }
   };
 
-  // Fetch the first set of videos when the component mounts
   useEffect(() => {
     fetchVideos();
   }, []);
 
-  // Function to load more videos when "View All" is clicked
   const loadMoreVideos = () => {
     if (nextPageToken) {
       setIsLoadingMore(true);
@@ -54,7 +46,7 @@ const YouTubeChannelScreen = () => {
     }
   };
 
-  // Function to render each video item
+
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.videoItem}

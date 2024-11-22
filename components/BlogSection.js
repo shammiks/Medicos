@@ -26,14 +26,14 @@ const blogs = [
 const BlogSection = () => {
   const navigation = useNavigation();
 
-  const handlePress = (url) => {
-    navigation.navigate('Webview', { url });
+  const handlePress = () => {
+    navigation.navigate('Health');
   };
 
   const renderBlogItem = ({ item }) => (
     <TouchableOpacity
       style={styles.blogItem}
-      onPress={() => handlePress(item.link)}
+      onPress={() => handlePress()}
     >
       <Image source={{ uri: item.image }} style={styles.blogImage} />
       <Text style={styles.blogTitle}>{item.title}</Text>
@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
   viewAllText: {
     color: "#007AFF",
     fontSize: 16,
+    left:-10
   },
   blogContainer: {
     marginBottom: 20,
